@@ -11,10 +11,7 @@ __pycache__/
 *.pt
 *.ckpt
 
-# Project Outputs & Logs
-outputs/
-runs/
-*.log
+
 
 # OS Generated Files
 .DS_Store
