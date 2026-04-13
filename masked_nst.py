@@ -21,9 +21,6 @@ def blend_foreground_background(
     stylized_img: torch.Tensor,
     fg_mask: torch.Tensor,
 ) -> torch.Tensor:
-    """
-    Keeps original foreground, stylized background.
-    """
     return fg_mask * content_img + (1.0 - fg_mask) * stylized_img
 
 
@@ -100,6 +97,5 @@ def run_masked_nst(
                 f"TV: {tv_loss.item():.6f}"
             )
 
-    # final soft blend to preserve foreground more cleanly
     final = blend_foreground_background(content_img, generated.detach().clamp(0, 1), fg_mask)
     return final.clamp(0, 1)

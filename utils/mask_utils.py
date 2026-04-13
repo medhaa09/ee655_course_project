@@ -4,9 +4,6 @@ from torchvision.transforms.functional import gaussian_blur
 
 
 def normalize_mask(mask: torch.Tensor) -> torch.Tensor:
-    """
-    Ensures mask is in [0,1], shape [1,1,H,W].
-    """
     if mask.dim() == 2:
         mask = mask.unsqueeze(0).unsqueeze(0)
     elif mask.dim() == 3:
@@ -20,9 +17,6 @@ def threshold_mask(mask: torch.Tensor, threshold: float = 0.5) -> torch.Tensor:
 
 
 def blur_mask(mask: torch.Tensor, kernel_size: int = 21) -> torch.Tensor:
-    """
-    Applies gaussian blur to soften edges.
-    """
     mask = normalize_mask(mask)
     blurred = gaussian_blur(mask.squeeze(0), kernel_size=[kernel_size, kernel_size])
     return blurred.unsqueeze(0).clamp(0.0, 1.0)
@@ -39,9 +33,6 @@ def invert_mask(mask: torch.Tensor) -> torch.Tensor:
 
 
 def refine_mask(mask: torch.Tensor, threshold: float = 0.5, blur_kernel: int = 21) -> torch.Tensor:
-    """
-    Binary threshold followed by blur for soft edges.
-    """
     mask = threshold_mask(mask, threshold=threshold)
     mask = blur_mask(mask, kernel_size=blur_kernel)
     return mask.clamp(0.0, 1.0)

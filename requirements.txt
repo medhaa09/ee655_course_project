@@ -3,3 +3,7 @@ torchvision
 pillow
 matplotlib
 numpy
+
+ultralytics
+transformers 
+accelerate
