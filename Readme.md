@@ -1,4 +1,4 @@
-# Artistic Vision: Neural Style Transfer for Image Synthesis
+# GroundedStyle: Selective Background Stylization
 ## Neural style transfer + Grounded SAM + CycleGAN 
 
 This project contains two separate pipelines:
