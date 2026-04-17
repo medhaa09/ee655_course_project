@@ -36,6 +36,13 @@ The folder `cyclegan_train` contains the CycleGAN training code.
 
 Create and activate the virtual environment:
 
+**On Windows:**
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+**On macOS/Linux:**
 ```bash
 python -m venv .venv
 source .venv/bin/activate
@@ -44,7 +51,7 @@ source .venv/bin/activate
 Install the main dependencies:
 
 ```bash
-pip install torch torchvision pillow scikit-image dominate transformers accelerate timm
+pip install -r requirements.txt
 ```
 
 If you are using Grounded SAM through Hugging Face models, you may also want:
@@ -57,7 +64,31 @@ If anything is missing during runtime, install that package in the same `.venv`.
 
 ---
 
-## 1. Run `main.py` (Vanilla NST + Masked NST)
+## 1. Run `app.py` (Streamlit UI)
+
+A web-based interface for running both pipelines without using the command line.
+
+### Command
+
+```bash
+streamlit run app.py
+```
+
+This launches an interactive web UI where you can:
+- Upload a content image
+- Choose a method (Vanilla NST or CycleGAN)
+- Upload a style image (for Vanilla NST only)
+- Configure parameters: image size, NST steps, segmentation prompt, thresholds, etc.
+- View results directly in the browser
+
+The UI provides sliders and input fields for all the key parameters, making it easy to experiment without manually editing command-line arguments.
+
+---
+
+## OPTIONAL SECTIONS
+The below two sections show the methods to run both pipelines individually without using UI.
+
+## 2. Run `main.py` (Vanilla NST + Masked NST)
 
 This pipeline:
 - loads the content image
@@ -91,7 +122,7 @@ This saves files like:
 
 ---
 
-## 2. Run `main2.py` (Segmentation + CycleGAN background-only stylization)
+## 3. Run `main2.py` (Segmentation + CycleGAN background-only stylization)
 
 This pipeline:
 - runs segmentation first

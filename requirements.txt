@@ -1,9 +1,12 @@
 torch
 torchvision
 pillow
+scikit-image
 matplotlib
 numpy
-
+dominate
+timm
 ultralytics
 transformers 
 accelerate
+streamlit
