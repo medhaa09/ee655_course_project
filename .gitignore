@@ -28,4 +28,5 @@ Thumbs.db
 # IDEs and Editors
 .vscode/
 .idea/
-*.swp
+*.swppytorch-CycleGAN-and-pix2pix/
+pytorch-CycleGAN-and-pix2pix/
