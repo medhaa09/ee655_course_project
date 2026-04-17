@@ -27,6 +27,8 @@ NST/
 └── pytorch-CycleGAN-and-pix2pix/
 ```
 
+The folder `cyclegan_train` contains the CycleGAN training code.
+
 ---
 
 ## Setup
@@ -172,6 +174,38 @@ Example:
 ```bash
 --text_prompt "a person."
 ```
+
+instead of:
+
+```bash
+--text_prompt "a person"
+```
+
+### Temporary CycleGAN inference dataset
+
+If `main2.py` calls `test.py` from the CycleGAN repo using `dataset_mode=unaligned`, then both of these temporary folders must contain at least one image:
+
+```text
+testA/
+testB/
+```
+
+Even if you only care about `A -> B` translation, `testB` must not be empty.
+A simple fix is to copy the same content image into both `testA` and `testB`.
+
+---
+
+## Example content/style files
+
+You can place your images like this:
+
+```text
+data/content/person2.jpg
+data/style/the_scream.jpg
+```
+
+---
+
 ## Summary
 
 ### `main.py`
