@@ -1,4 +1,4 @@
-# NST + Grounded SAM + CycleGAN Background Stylization
+# Selective NST & CycleGAN via Grounded Segmentation
 
 This project contains two separate pipelines:
 
