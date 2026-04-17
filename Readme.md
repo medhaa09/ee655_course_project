@@ -1,4 +1,5 @@
-# Selective NST & CycleGAN via Grounded Segmentation
+# GroundedStyle: Selective Background Stylization
+## Neural style transfer + Grounded SAM + CycleGAN 
 
 This project contains two separate pipelines:
 
